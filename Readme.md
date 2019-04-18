@@ -6,6 +6,6 @@
 3. 林彥興 106020008<br/>
 4. 呂長益 106022109<br/>
 5. 黃禕煒 x1072165<br/>
-6. 陳重衡 Today,he is absent<br/><br/><br/>
+6. 陳重衡 He is ABSENT<br/><br/><br/>
 ## Title: <br/>
 ## GOAL
