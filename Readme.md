@@ -30,3 +30,8 @@ Discuss how would viscosity, density, mass, and other variables influence the pr
 2. 粒子間與主星體的重力交互作用 Gravity
 3. 粒子間非彈性碰撞 Inelastic Collision
 4. 動畫繪製 Animation
+
+## Division of work
+主架構：王一晨、林彥興<br/>
+演算法：王一晨、黃禕煒<br/>
+繪圖與其他：陳重名、呂長益、陳重衡、林彥興<br/>
