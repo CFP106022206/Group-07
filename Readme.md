@@ -12,14 +12,14 @@ Numerical Simulation of the Tidal Effect on small body close to Roche limit
 ## GOAL
 模擬小天體接近大天體洛希極限時會如何在潮汐力的作用下解體。<br/>
 探討小天體的質量、密度與黏滯性等特性如何影響解體過程。<br/>
-Simulate the destruction process of the small body when it comes close to the Roche limit.
-Discuss how would viscosity, density, mass, and other variables influence the process.
+Simulate the destruction process of the small body when it comes close to the Roche limit.<br/>
+Discuss how would viscosity, density, mass, and other variables influence the process.<br/>
 
 ## Simulation Method
 以多個具有質量與體積的小粒子組合為小天體，粒子間具有重力交互作用，並會發生非彈性碰撞。給定初始條件後即可觀察結果。<br/>
 
 ## Important Functions that has to be construct
-1. 粒子間非彈性碰撞
-2. 粒子間與主星體的重力交互作用
-3. 初始條件的給定
-4. 動畫繪製
+1. 初始條件的給定 Giving initial condition
+2. 粒子間與主星體的重力交互作用 Gravity
+3. 粒子間非彈性碰撞 Inelastic Collision
+4. 動畫繪製 Animation
