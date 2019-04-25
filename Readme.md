@@ -29,7 +29,7 @@ Discuss how would viscosity, density, mass, and other variables influence the pr
 1. 初始條件的給定 Giving initial condition
 2. 粒子間與主星體的重力交互作用 Gravity
 3. 粒子間非彈性碰撞 Inelastic Collision
-4. 動畫繪製 Animation
+4. 動畫繪製 Animation<br/><br/><br/>
 
 ## Division of work
 主架構：王一晨、林彥興<br/>
