@@ -10,13 +10,20 @@ import matplotlib.pyplot as plt #畫圖用
 import imageio as io #輸出影片用
 import test
 
-global G = 1 #Gravitational constant
-global M = 5000 #Center Body Mass
-global n = 100 #Number of particles
-global simulation_frame = 1000
-global time_resoultion = 1
-global e = 0 #coefficient of restitution
-global T = 0
+global G #Gravitational constant
+G = 1 
+global M #Center Body Mass
+M = 5000
+global n #Number of particles
+n = 100 
+global simulation_frame
+simulation_frame = 100
+global time_resoultion
+time_resoultion = 1
+global e #coefficient of restitution
+e = 0
+global T
+T = 0
 
 R = np.ones((8,n))
 R.astype('float64')
