@@ -8,13 +8,15 @@ Created on Thu Apr 25 17:07:06 2019
 import numpy as np #計算用
 import matplotlib.pyplot as plt #畫圖用
 import imageio as io #輸出影片用
+import test
 
-G = 1 #Gravitational constant
-M = 5000 #Center Body Mass
-n = 100 #Number of particles
-simulation_frame = 1000
-e = 0 #coefficient of restitution
-T = 0
+global G = 1 #Gravitational constant
+global M = 5000 #Center Body Mass
+global n = 100 #Number of particles
+global simulation_frame = 1000
+global time_resoultion = 1
+global e = 0 #coefficient of restitution
+global T = 0
 
 R = np.ones((8,n))
 R.astype('float64')
@@ -37,15 +39,18 @@ for i in range(0,n):
 
 
 def frame(R): #用於計算
-    #Calling C code @王一晨
+    empty_array = np.zeros((8,n)
+    test.main_func(R,empty_array,G,time_resoultion,e)
+    R = empty_array
     return R, dt #回傳dt以便計算總時間
 
 def store(R): #用於儲存不同時間的位置資訊
     new_R_data = frame(R)[0:2,:]
     np.append(R_datas,new_R_data,axis = 2)
-'''
+
+
 for i in range(0,simulation_frame): #執行主程式
     frame(R)
     store(R)
-'''
+
 #繪圖與輸出教給藝術總監 @陳重名
