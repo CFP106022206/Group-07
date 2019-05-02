@@ -5,37 +5,35 @@ Created on Thu Apr 25 17:07:06 2019
 @author: Julius 本機
 """
 
-import numpy as np
-import matplotlib.pyplot as plt
-import imageio as io
+import numpy as np #計算用
+import matplotlib.pyplot as plt #畫圖用
+import imageio as io #輸出影片用
 
 G = 1 #Gravitational constant
 M = 5000 #Center Body Mass
 n = 100 #Number of particles
-simulation_time = 1000
+simulation_frame = 1000
 e = 0 #coefficient of restitution
 T = 0
 
 R = np.ones((8,n))
 R.astype('float64')
+R_datas = R[0:2,:] #儲存所有frame的位置資訊，是個"3*n*simulation_frame"的陣列
+
+#給定 Initial Condition
+#(待處理)
+
 
 def frame(R): #用於計算
-    #Calling C code
+    #Calling C code @王一晨
     return R, dt #回傳dt以便計算總時間
-    
-def image(R,i): #用於畫圖
-    #藝術總監 @陳重名 請自由發揮
-    T += dt #代表經過的時間
-    frame(R)
-    fig, ax = plt.subplots(figsize=(5,5))
-    ax.scatter(R) #Matplotlib有3D的Scatter繪圖功能
-    ax.set(title='frame:{}'.format(T))
-    
-    fig.canvas.draw()  # draw the canvas, cache the renderer
-    image = np.frombuffer(fig.canvas.tostring_rgb(), dtype='uint8')
-    image = image.reshape(fig.canvas.get_width_height()[::-1] + (3,))
-    
-    return image
 
-kwargs_write = {'fps':24.0, 'quantizer':'nq'} #預設參數
-io.mimsave('./2D_Transverse_wave_E_open_boundary.mp4', [image(R,i) for i in range(simulation_time)], fps=24) #匯出 mp4 檔案
+def store(R): #用於儲存不同時間的位置資訊
+    new_R_data = frame(R)[0:2,:]
+    np.append(R_datas,new_R_data,axis = 2)
+
+for i in range(0,simulation_frame): #執行主程式
+    frame(R)
+    store(R)
+
+#繪圖與輸出教給藝術總監 @陳重名
