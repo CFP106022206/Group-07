@@ -25,12 +25,13 @@ e = 0
 global T
 T = 0
 
-R = np.ones((8,n))
+global R
+R = np.ones((n,8))
 R.astype('float64')
 
 global R_datas
-R_datas = np.zeros((3,n,simulation_frame))
-R_datas[0:3,:,0] = R[0:3,:] #儲存所有frame的位置資訊，是個"3*n*simulation_frame"的陣列
+R_datas = np.zeros((n,3,simulation_frame))
+R_datas[:,0:3,0] = R[:,0:3] #儲存所有frame的位置資訊，是個"3*n*simulation_frame"的陣列
 
 
 #給定 Initial Condition
@@ -38,35 +39,32 @@ R_datas[0:3,:,0] = R[0:3,:] #儲存所有frame的位置資訊，是個"3*n*simul
 r = 100 #小天體的半徑
 k = n
 while k > 0:
-    position = (np.random.random((1,3))-np.ones((1,3))*0.5)*2*r
+    position = np.transpose((np.random.random((3,1))-np.ones((3,1))*0.5)*2*r)
     norm = np.linalg.norm(position)
     if norm < r:
-        R[0:3,n-k] = position
+        R[n-k,0:3] = position
         k -= 1
 #給定速度(等速前進)
 for i in range(0,n):
-    R[3:6,i] = np.array([1,0,0])
+    R[i,3:6] = np.array([1,0,0])
 
 
-'''
-def frame(R): #用於計算
+def frame(): #用於計算
+    global R
     empty_array = np.zeros((8,n))
+    empty_array = empty_array.copy(order='C')
+    R = R.copy(order='C')
     test.main_func(R,empty_array,G,time_resoultion,e)
     R = empty_array
-    return R 
-'''
-def frame(R):
-    return R
 
-def store(R,t): #用於儲存不同時間的位置資訊
-    new_R_data = frame(R)[0:3,:]
+
+def store(t): #用於儲存不同時間的位置資訊
+    new_R_data = R[:,0:3]
     global R_datas
-    R_datas[0:3,:,t] = new_R_data
-
-
+    R_datas[:,0:3,t] = new_R_data
 
 for t in range(0,simulation_frame): #執行主程式
-    frame(R)
-    store(R,t)
+    frame()
+    store(t)
 
 #繪圖與輸出教給藝術總監 @陳重名
