@@ -51,7 +51,7 @@ for i in range(0,n):
 
 def frame(): #用於計算
     global R
-    empty_array = np.zeros((8,n))
+    empty_array = np.empty_like(R)
     empty_array = empty_array.copy(order='C')
     R = R.copy(order='C')
     test.main_func(R,empty_array,G,time_resoultion,e)
