@@ -89,7 +89,6 @@ void collision(double *a,double *r,int n,int m,double e)
                 minus(v2v,v1v,v1vf);
                 if (dot(v1vf,s)<0)
                 {
-                    //write1(ini_momentum,*(a+i*m+6)**(a+i*m+3)+*(a+j*m+6)**(a+j*m+3),*(a+i*m+6)**(a+i*m+4)+*(a+j*m+6)**(a+j*m+4),*(a+i*m+6)**(a+i*m+5)+*(a+j*m+6)**(a+j*m+5));
                     mul(v1vf,v1vf,e*(*(a+j*m+6)));
                     mul(v1v,v11,*(a+i*m+6));
                     mul(v2v,v21,*(a+j*m+6));
