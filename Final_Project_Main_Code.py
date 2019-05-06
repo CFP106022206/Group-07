@@ -7,9 +7,9 @@ Created on Thu Apr 25 17:07:06 2019
 
 import numpy as np #計算用
 import matplotlib.pyplot as plt #Drawing picture
-import imageio as io #Making videos
+#import imageio as io #Making videos
 import test #C calculation program
-#from mpl_toolkits.mplot3d import Axes3D
+from mpl_toolkits.mplot3d import Axes3D
 import time #Time the code
 
 start = time.time() #The start time
@@ -20,7 +20,7 @@ G = 6.67*10**-11 #Gravitational constant
  
 M = 8000         #Center Body Mass
 
-n = 100          #Number of particles
+n = 100         #Number of particles
 
 simulation_frame = 1000
 
@@ -101,6 +101,7 @@ calculation_time = time.time()
 
 #%%
 #繪圖與輸出教給藝術總監 @陳重名
+'''
 def image(t):
     fig, ax = plt.subplots(figsize=(10,10))
     ax.scatter(R_datas[t,:,0],R_datas[t,:,1])
@@ -115,6 +116,17 @@ def image(t):
     return image
 
 io.mimsave('./movie.mp4', [image(t) for t in range(simulation_frame)], fps=20)
+'''
+for t in range(0,simulation_frame):
+    fig = plt.figure()
+    ax = Axes3D(fig)
+    ax.scatter(R_datas[t,:,0],R_datas[t,:,1],R_datas[t,:,1])
+    ax.set_xlim(-1000,1000)
+    ax.set_ylim(-1000,1000)
+    ax.set_zlim(-1000,1000)
+    plt.savefig(r'C:\Users\林彥興\.spyder-py3\Computation of physics\Final Project\frame\Roche_limit_%04d.png' % t)
+    plt.close()
+
 
 end = time.time()
 
