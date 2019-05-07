@@ -18,13 +18,13 @@ start = time.time() #The start time
 
 G = 6.67*10**-11 #Gravitational constant
  
-M = 8000         #Center Body Mass
+M = 4.5*10**9 #Particle Mass
 
-n = 100         #Number of particles
+n = 100 #Number of particles
 
-simulation_frame = 1000
+simulation_frame = 2000
 
-time_resoultion = 1
+time_resoultion = 0.02
 
 e = 0            #coefficient of restitution
 
@@ -42,7 +42,7 @@ empty_array = empty_array.copy(order='C')
 
 #給定 Initial Condition
 #給定位置(均勻球形分布)
-r = 100 #小天體的半徑
+r = 50 #小天體的半徑
 
 coor_trans = np.zeros((n,3))
 coor_trans[:,0] = r
@@ -56,21 +56,21 @@ position[:,0] = spherical[:,0]*np.sin(spherical[:,1])*np.cos(spherical[:,2])
 position[:,1] = spherical[:,0]*np.sin(spherical[:,1])*np.sin(spherical[:,2])
 position[:,2] = spherical[:,0]*np.cos(spherical[:,1])
 
-R[:,0:3] = position + np.ones((n,3))*500
+R[:,0:3] = position + np.ones((n,3))*27450
 
 #給定速度(等速前進)
-R[:,3] *= 4
-R[:,4] *= -4
+R[:,3] *= 2100*32
+R[:,4] *= -2100*32
 R[:,5] *= 0
-R[:,6]   *= M #粒子質量
-R[:,7]   *= 10 #粒子半徑
+R[:,6] *= M #粒子質量
+R[:,7] *= 5 #粒子半徑
 R_datas = np.zeros((simulation_frame,n,3))
 R_datas[0,:,:3] = R[:,:3] #儲存所有frame的位置資訊
 
 #Center Mass
 R[0,0:6] = 0
-R[0,6] = 10**15
-R[0,7] = 100
+R[0,6] = 6*10**24
+R[0,7] = 500
 
 #%%
 
@@ -101,34 +101,23 @@ calculation_time = time.time()
 
 #%%
 #繪圖與輸出教給藝術總監 @陳重名
-'''
-def image(t):
-    fig, ax = plt.subplots(figsize=(10,10))
-    ax.scatter(R_datas[t,:,0],R_datas[t,:,1])
-    ax.set(xlabel='Offset', ylabel='Offset',title='frame:{}'.format(t))
-    ax.set_xlim(-1000,1000)
-    ax.set_ylim(-1000,1000)
-    
-    fig.canvas.draw()  # draw the canvas, cache the renderer
-    image = np.frombuffer(fig.canvas.tostring_rgb(), dtype='uint8')
-    image = image.reshape(fig.canvas.get_width_height()[::-1] + (3,))
-    
-    return image
 
-io.mimsave('./movie.mp4', [image(t) for t in range(simulation_frame)], fps=20)
-'''
+start_of_drawing = time.time()
+
+picture_scale = 50000
+
 for t in range(0,simulation_frame):
     fig = plt.figure()
     ax = Axes3D(fig)
     ax.scatter(R_datas[t,:,0],R_datas[t,:,1],R_datas[t,:,1])
-    ax.set_xlim(-1000,1000)
-    ax.set_ylim(-1000,1000)
-    ax.set_zlim(-1000,1000)
-    plt.savefig(r'C:\Users\林彥興\.spyder-py3\Computation of physics\Final Project\frame\Roche_limit_%04d.png' % t)
+    ax.set_xlim(-picture_scale,picture_scale)
+    ax.set_ylim(-picture_scale,picture_scale)
+    ax.set_zlim(-picture_scale,picture_scale)
+    plt.savefig(r'C:\Users\林彥興\.spyder-py3\Computation of physics\Final Project\frame_Earth_far\Roche_limit_%04d.png' % t)
     plt.close()
-
+    print(t)
 
 end = time.time()
 
 print('Calculation time: '+ str(calculation_time-start))
-print('Drawing time: '+ str(end-calculation_time))
+print('Drawing time: '+ str(end-start_of_drawing))
