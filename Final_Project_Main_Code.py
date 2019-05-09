@@ -2,7 +2,15 @@
 """
 Created on Thu Apr 25 17:07:06 2019
 
-@author: Julius 本機
+This is the main code for our final project of "Computation of physics".
+Crew member:
+    林彥興 106020008 Main Code construction
+    王一晨 106022212 Main Code construction / Calculation of collision and gravity
+    陳重名 106022206 Director of Art
+    呂長益 106022109 
+    黃禕煒 x1072165  
+    陳重衡 106020087  
+
 """
 
 import numpy as np #計算用
@@ -15,6 +23,8 @@ import time #Time the code
 start = time.time() #The start time
 
 #%%
+
+'''Creating parameter and array'''
 
 G = 6.67*10**-11 #Gravitational constant
  
@@ -40,7 +50,8 @@ empty_array = empty_array.copy(order='C')
 
 #%%
 
-#給定 Initial Condition
+'''給定 Initial Condition'''
+
 #給定位置(均勻球形分布)
 r = 50 #小天體的半徑
 
@@ -64,15 +75,20 @@ R[:,4] *= -2100*32
 R[:,5] *= 0
 R[:,6] *= M #粒子質量
 R[:,7] *= 5 #粒子半徑
-R_datas = np.zeros((simulation_frame,n,3))
-R_datas[0,:,:3] = R[:,:3] #儲存所有frame的位置資訊
+
 
 #Center Mass
 R[0,0:6] = 0
 R[0,6] = 6*10**24
 R[0,7] = 500
 
+#Creat the array that stores the data in different time
+R_datas = np.zeros((simulation_frame,n,3))
+R_datas[0,:,:3] = R[:,:3] 
+
 #%%
+
+'''Define the function use for calculation and storing data'''
 
 def frame(): #用於計算
     global G
@@ -91,7 +107,9 @@ def store(t): #用於儲存不同時間的位置資訊
     R_datas[t,:,:3] = R[:,:3]
 
 #%%
-    
+
+'''Main Code'''
+
 for t in range(1,simulation_frame): #執行主程式
     frame()
     store(t)
@@ -100,20 +118,20 @@ for t in range(1,simulation_frame): #執行主程式
 calculation_time = time.time()
 
 #%%
-#繪圖與輸出教給藝術總監 @陳重名
+'''繪圖與輸出教給藝術總監 @陳重名'''
 
 start_of_drawing = time.time()
 
 picture_scale = 50000
 
-for t in range(0,simulation_frame):
+for t in range(0,int(simulation_frame/5)):
     fig = plt.figure()
     ax = Axes3D(fig)
-    ax.scatter(R_datas[t,:,0],R_datas[t,:,1],R_datas[t,:,1])
-    ax.set_xlim(-picture_scale,picture_scale)
-    ax.set_ylim(-picture_scale,picture_scale)
-    ax.set_zlim(-picture_scale,picture_scale)
-    plt.savefig(r'C:\Users\林彥興\.spyder-py3\Computation of physics\Final Project\frame_Earth_far\Roche_limit_%04d.png' % t)
+    ax.scatter(R_datas[t,:,0],R_datas[t,:,1],R_datas[t,:,2])
+    ax.set_xlim(-picture_scale, picture_scale)
+    ax.set_ylim(-picture_scale, picture_scale)
+    ax.set_zlim(-picture_scale, picture_scale)
+    plt.savefig(r'C:\Users\林彥興\.spyder-py3\Computation of physics\Final Project\frame\Roche_limit_%04d.png' % t)
     plt.close()
     print(t)
 
