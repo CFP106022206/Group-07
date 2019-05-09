@@ -60,4 +60,4 @@ def initial_condition_generater(vel,d1,d2,d3,r1,r2,r,a,n,position=[0,0,0],m_max=
 
     R[:,:3] += position
     return R
-a = initial_condition_generater([10,10,10],10**1.12,10**1.45,10**1.65,50,100,200,10,70)
+#a = initial_condition_generater([10,10,10],10**1.12,10**1.45,10**1.65,50,100,200,10,70) 
