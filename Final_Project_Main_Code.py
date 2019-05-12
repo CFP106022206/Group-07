@@ -3,19 +3,21 @@
 Created on Thu Apr 25 17:07:06 2019
 
 This is the main code for our final project of "Computation of physics".
+The code is made to simulate the gravity and collision between N particles.
+Which can be used to study Tidal Effect, Roche Limit and other phenomenon.
+
 Crew member:
-    林彥興 106020008 Main Code construction
-    王一晨 106022212 Main Code construction / Calculation of collision and gravity
+    林彥興 106020008 Main Code Constructor / 
+    王一晨 106022212 Main Code Constructor / Calculation of collision and gravity
     陳重名 106022206 Director of Art
-    呂長益 106022109 
-    黃禕煒 x1072165  
-    陳重衡 106020087  
+    呂長益 106022109 Art Supporter
+    黃禕煒 x1072165  Art Supporter / Calculation of Collision and Gravity
+    陳重衡 106020087 Initial Condition Giver 
 
 """
 
 import numpy as np #計算用
 import matplotlib.pyplot as plt #Drawing picture
-#import imageio as io #Making videos
 import test #C calculation program
 from mpl_toolkits.mplot3d import Axes3D
 import time #Time the code
@@ -28,13 +30,13 @@ start = time.time() #The start time
 
 G = 6.67*10**-11 #Gravitational constant
  
-M = 4.5*10**9 #Particle Mass
+M = 5*10**5 #Particle Mass
 
 n = 100 #Number of particles
 
-simulation_frame = 2000
+simulation_frame = 5000
 
-time_resoultion = 0.02
+time_resoultion = 0.001
 
 e = 0            #coefficient of restitution
 
@@ -50,7 +52,7 @@ empty_array = empty_array.copy(order='C')
 
 #%%
 
-'''給定 Initial Condition'''
+'''Initial Condition'''
 
 #給定位置(均勻球形分布)
 r = 50 #小天體的半徑
@@ -67,12 +69,16 @@ position[:,0] = spherical[:,0]*np.sin(spherical[:,1])*np.cos(spherical[:,2])
 position[:,1] = spherical[:,0]*np.sin(spherical[:,1])*np.sin(spherical[:,2])
 position[:,2] = spherical[:,0]*np.cos(spherical[:,1])
 
-R[:,0:3] = position + np.ones((n,3))*27450
+r_vector = np.ones((n,3))
+r_vector[:,2] = 0
+
+R[:,0:3] = position + r_vector*10**4/2**0.5
 
 #給定速度(等速前進)
-R[:,3] *= 2100*32
-R[:,4] *= -2100*32
+R[:,3] *= 141400
+R[:,4] *= -141400
 R[:,5] *= 0
+
 R[:,6] *= M #粒子質量
 R[:,7] *= 5 #粒子半徑
 
@@ -116,26 +122,5 @@ for t in range(1,simulation_frame): #執行主程式
     print(t)
 
 calculation_time = time.time()
-
-#%%
-'''繪圖與輸出教給藝術總監 @陳重名'''
-
-start_of_drawing = time.time()
-
-picture_scale = 50000
-
-for t in range(0,int(simulation_frame/5)):
-    fig = plt.figure()
-    ax = Axes3D(fig)
-    ax.scatter(R_datas[t,:,0],R_datas[t,:,1],R_datas[t,:,2])
-    ax.set_xlim(-picture_scale, picture_scale)
-    ax.set_ylim(-picture_scale, picture_scale)
-    ax.set_zlim(-picture_scale, picture_scale)
-    plt.savefig(r'C:\Users\林彥興\.spyder-py3\Computation of physics\Final Project\frame\Roche_limit_%04d.png' % t)
-    plt.close()
-    print(t)
-
-end = time.time()
-
-print('Calculation time: '+ str(calculation_time-start))
-print('Drawing time: '+ str(end-start_of_drawing))
+print("Calculation_time: "+str(calculation_time-start))
+np.save("R_datas.npy",R_datas)
