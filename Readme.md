@@ -38,3 +38,14 @@ Discuss how would viscosity, density, mass, and other variables influence the pr
 
 ### Final Project Briefing (PPT)
 https://onedrive.live.com/view.aspx?resid=71703B636B6F91B5!14452&ithint=file%2cpptx&authkey=!AN6ia9tUKMHqf5I
+
+### Research for the relation between distance and destruction time
+請各位下載 Main_Code_Circular.py，其中有三個地方需要修改：<br/>
+1. distance：小天體與主星之間的距離。目前我是以250為單位增加，已經完成1000-2250。<br/>
+2. Simulation_frame：模擬的時間長度。2250以上可能需要10000以上才能夠完成，distance越長，需要的frame越多。這也是需要各位協助的主要原因。<br/>
+3. 檔名：最後面的np.save裡面的檔名，請設為'R=xxxx.npy'。<br/>
+完成模擬後，請各位將這份.npy檔傳給我。<br/>
+分配：(填上自己的名字)<br/>
+2500-2750:<br/>
+3000-3750:<br/>
+4000-5000:<br/>
