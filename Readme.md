@@ -46,6 +46,6 @@ https://onedrive.live.com/view.aspx?resid=71703B636B6F91B5!14452&ithint=file%2cp
 3. 檔名：最後面的np.save裡面的檔名，請設為'R=xxxx.npy'。<br/>
 完成模擬後，請各位將這份.npy檔傳給我。<br/>
 分配：(填上自己的名字)<br/>
-2500-2750:<br/>
-3000-3750:<br/>
+2500-2750:Jason<br/>
+3000-3750:王一晨<br/>
 4000-5000:王一晨<br/>
