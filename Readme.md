@@ -10,7 +10,7 @@
 
 
 ## Title: <br/>
-Numerical Simulation of the Tidal Effect on small body close to Roche limit<br/><br/><br/>
+Numerical Simulation of the Tidal Effect on small body  Roche limit<br/><br/><br/>
 
 ## What is Roche Limit
 The distance within which a celestial body, held together only by its own gravity, will disintegrate due to a second celestial body's tidal forces exceeding the first body's gravitational self-attraction.<br/>
