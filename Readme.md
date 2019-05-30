@@ -1,6 +1,6 @@
 # Group-07
 
-## Members <br/>
+## Members and division of work<br/>
 1. 王一晨 106022212：Main Code Construction / Calculation of collision and gravity<br/>
 2. 陳重名 106022206：Visualization<br/>
 3. 林彥興 106020008：Main Code Construction / Scientific Analysis<br/>
@@ -36,19 +36,13 @@ https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods
 3. 粒子間非彈性碰撞 Inelastic Collision
 4. 動畫繪製 Animation<br/><br/><br/>
 
-## Division of work <br/>
-主架構：王一晨、林彥興<br/>
-演算法：王一晨、黃禕煒<br/>
-繪圖與其他：陳重名、呂長益、陳重衡、林彥興<br/><br/>
-
 ## Final Project Briefing (PPT) <br/>
 https://onedrive.live.com/view.aspx?resid=71703B636B6F91B5!14452&ithint=file%2cpptx&authkey=!AN6ia9tUKMHqf5I
 <br/><br/>
 ## Scientific Research <br/>
-### Research for the relation between distance and destruction time
-1. Set the distance between Main and small body to be 1500.
-2. Calculate the destruction time for the small body for r from 100 to 500.
-3. Plot the result and analyze their relation.
+### Research for the relation between distance and destruction time <br/>
+1. Calculate the destruction time for the small body for distance from 1000 to 6000.
+2. Plot the result and analyze their relation.
 <br/>
 '''
 請各位下載 Main_Code_Circular.py，其中有三個地方需要修改：<br/>
@@ -61,7 +55,7 @@ https://onedrive.live.com/view.aspx?resid=71703B636B6F91B5!14452&ithint=file%2cp
 3000-3750: 王一晨<br/>
 4000-5000: 王一晨<br/>
 '''<br/>
-### Reserrch for the relation between radius of the small body and destruction time
+### Research for the relation between radius of the small body and destruction time <br/>
 1. Set the distance between Main and small body to be 1500.
 2. Calculate the destruction time for the small body for r from 100 to 500.
 3. Plot the result and analyze their relation.
