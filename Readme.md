@@ -42,19 +42,8 @@ https://onedrive.live.com/view.aspx?resid=71703B636B6F91B5!14452&ithint=file%2cp
 ## Scientific Research <br/>
 ### Research for the relation between distance and destruction time <br/>
 1. Calculate the destruction time for the small body for distance from 1000 to 6000.
-2. Plot the result and analyze their relation.
-<br/>
-'''
-請各位下載 Main_Code_Circular.py，其中有三個地方需要修改：<br/>
-1. distance：小天體與主星之間的距離。目前我是以250為單位增加，已經完成1000-2250。<br/>
-2. Simulation_frame：模擬的時間長度。2250以上可能需要10000以上才能夠完成，distance越長，需要的frame越多。這也是需要各位協助的主要原因。<br/>
-3. 檔名：最後面的np.save裡面的檔名，請設為'R=xxxx.npy'。<br/>
-完成模擬後，請各位將這份.npy檔傳給我。<br/>
-分配：(填上自己的名字)<br/>
-2500-2750: Jason<br/>
-3000-3750: 王一晨<br/>
-4000-5000: 王一晨<br/>
-'''<br/>
+2. Plot the result and analyze their relation.<br/><br/>
+
 ### Research for the relation between radius of the small body and destruction time <br/>
 1. Set the distance between Main and small body to be 1500.
 2. Calculate the destruction time for the small body for r from 100 to 500.
