@@ -6,11 +6,10 @@
 3. 林彥興 106020008：Main Code Construction / Scientific Analysis<br/>
 4. 呂長益 106022109：Art Supporter<br/>
 5. 黃禕煒 x1072165：Art Supporter / Calculation of Collision and Gravity<br/>
-6. 陳重衡 106020087：Initial Condition generation<br/><br/><br/>
-
+6. 陳重衡 106020087：Initial Condition generation<br/><br/>
 
 ## Title <br/>
-Numerical Simulation of the Tidal Effect on small body  Roche limit<br/><br/><br/>
+Numerical Simulation of the Tidal Effect on small body inside Roche limit<br/><br/>
 
 ## What is Roche Limit <br/>
 The distance within which a celestial body, held together only by its own gravity, will disintegrate due to a second celestial body's tidal forces exceeding the first body's gravitational self-attraction.<br/>
@@ -22,23 +21,24 @@ In the following introduction, we will use "Main Body" as the heavier central bo
 模擬小天體接近大天體洛希極限時會如何在潮汐力的作用下解體。<br/>
 探討小天體的質量、密度與黏滯性等特性如何影響解體過程。<br/>
 Simulate the destruction process of the small body when it comes inside Roche limit.<br/>
-Discuss how would density, mass, distance, and other variables influence the process.<br/><br/><br/>
+Discuss how would density, mass, distance, and other variables influence the process.<br/><br/>
 
 ## Simulation Method <br/>
 以多個具有質量與體積的小粒子組合為小天體，粒子間具有重力交互作用，並會發生非彈性碰撞。給定初始條件後即可觀察結果。<br/>
 Algorithm for calculation of gravity and collision: Runge-Kutta methods
 https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods
-<br/><br/><br/>
+<br/><br/>
 
 ## Important functions that has to be construct <br/>
 1. 初始條件的給定 Giving initial condition
 2. 粒子間與主星體的重力交互作用 Gravity
 3. 粒子間非彈性碰撞 Inelastic Collision
-4. 動畫繪製 Animation<br/><br/><br/>
+4. 動畫繪製 Animation<br/><br/>
 
 ## Final Project Briefing (PPT) <br/>
 https://onedrive.live.com/view.aspx?resid=71703B636B6F91B5!14452&ithint=file%2cpptx&authkey=!AN6ia9tUKMHqf5I
 <br/><br/>
+
 ## Scientific Research <br/>
 ### Research for the relation between distance and destruction time <br/>
 1. Calculate the destruction time for the small body for distance from 1000 to 6000.
