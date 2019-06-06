@@ -42,7 +42,7 @@ https://onedrive.live.com/view.aspx?resid=71703B636B6F91B5!14452&ithint=file%2cp
 ## Scientific Research <br/>
 ### Research for the relation between distance and destruction time <br/>
 1. Calculate the destruction time for the small body for distance from 1000 to 6000.
-2. Plot the result and analyze their relation.
+2. Plot the result and analyze their relation. Fit with y = a * t ^ b + c.
 ![image](https://github.com/CFP106022206/Group-07/blob/master/final_linear.png)
 <br/>
 <br/>
@@ -50,5 +50,5 @@ https://onedrive.live.com/view.aspx?resid=71703B636B6F91B5!14452&ithint=file%2cp
 ### Research for the relation between radius of the small body and destruction time <br/>
 1. Set the distance between Main and small body to be 1500.
 2. Calculate the destruction time for the small body for r from 100 to 500.
-3. Plot the result and analyze their relation.
+3. Plot the result and analyze their relation. Fit with y = a * t ^ -b + c.
 ![image](https://github.com/CFP106022206/Group-07/blob/master/Destruction%20time%20-%20Radius%20Relation.png)
