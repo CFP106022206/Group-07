@@ -4,7 +4,7 @@
 1. 王一晨 106022212：Main Code Construction / Calculation of collision and gravity<br/>
 2. 陳重名 106022206：Visualization<br/>
 3. 林彥興 106020008：Main Code Construction / Scientific Analysis<br/>
-4. 呂長益 106022109：Art Supporter<br/>
+4. 呂長益 106022109：Art Supporter / Theoretical analyze<br/>
 5. 黃禕煒 x1072165：Art Supporter / Calculation of Collision and Gravity<br/>
 6. 陳重衡 106020087：Initial Condition generation<br/><br/>
 
