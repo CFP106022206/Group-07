@@ -40,6 +40,7 @@ https://onedrive.live.com/view.aspx?resid=71703B636B6F91B5!14452&ithint=file%2cp
 <br/><br/>
 
 ## Scientific Research <br/>
+If 
 ### Research for the relation between distance and destruction time <br/>
 1. Calculate the destruction time for the small body for distance from 1000 to 6000.
 2. Plot the result and analyze their relation. Fit with y = a * t ^ b + c.
