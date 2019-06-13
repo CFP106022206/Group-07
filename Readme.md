@@ -66,10 +66,18 @@ We want to know the destruction process of the small body. To do this, we have t
 If the small body is compact, the position of it's C.o.M. should be equal to the orbital radius. If it is totally destroyed and formed a ring, C.o.M. should be at the center of the ring. Using this method, we can quantify the destruction level and do the analysis.
 We define if the C.o.M position is smaller than 0.2 orbital radius, the small body is "Destroyed".</br></br>
 To simplfy the condition, we set the small body on a circular orbit around the main body.</br></br>
+
 ### Research for the relation between distance and destruction time <br/>
+In theory, we expect that the destruction time will diverge to infinity when the distance comes close to the Roche limit. But what is the relation between distance and destruction time within the Roche limit? That's what we want to find out in this research.<br/>
+#### Method
 1. Calculate the destruction time for the small body for distance from 1000 to 6000.
 2. Plot the result and analyze their relation. Fit with y = a * t ^ b + c.
+#### Result
 ![image](https://github.com/CFP106022206/Group-07/blob/master/final_linear.png)
+<br/>
+#### Discussion
+Surprisingly, we found that in the distance range from 1000 to 6000, the time it takes to destroy the small body is proportional to the distance to the power of 2.5. Which is an interesting result.<br/>
+We tried to use some rough idea to derive the power of 2.5 in the result. The details can be found in the PPT of our final presentation.
 <br/>
 <br/>
 
