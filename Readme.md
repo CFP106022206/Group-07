@@ -44,6 +44,20 @@ https://1drv.ms/p/s!ArWRb2tjO3BxgP5lsV84oj4M-0eUlA?e=bPfCDU
 <br/><br/>
 
 ## How to run the code
+Algorithm<br/>
+1. Check the enviroment
+(a) run Final_Project_Main_Code.py<br/>
+case1 : program works well. You don't need to read this anymore! Just run it and have fun.<br/>
+case2 : Error: test cannot find....<br/>
+  This is because the enviroment doesn't support to run Cython and C. Make sure you had install Cython and Visual Studio.
+(b) Or you can dowload the package here: https://drive.google.com/open?id=1ZMO0dPUJR1jgOTxViZA_03Wyuc9u6RRm
+2. How to use the package<br/>
+  (a) If you want to see the sphere distributed particle, use algorithm file. Click at algorithm.py and key in some parameters.<br/>
+  (b) If you want to see any other case. Please build the initial.npy frist and put it in the algorithm1 fold.
+3. What does initial.npy looks like?<br/>
+  It is N*8 matrix. Each column represents  x y z vx vy vz mass radious
+4. Output<br/>
+  Both algorithm.exe and algorithm1.exe will output result.npy. It is m*n*3 matrix. m for each simulation frames, n for number of particles and 3 for x,y,z.
 @王一晨 @陳重名
 
 ## Scientific Research <br/>
