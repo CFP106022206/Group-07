@@ -82,7 +82,12 @@ We tried to use some rough idea to derive the power of 2.5 in the result. The de
 <br/>
 
 ### Research for the relation between radius of the small body and destruction time <br/>
+The radius of the small body will influence how strong the small body could gravitationally bond itself together. In this research, we want to find out the relation between radius of the small body and destruction time.
+#### Method
 1. Set the distance between Main and small body to be 1500.
 2. Calculate the destruction time for the small body for r from 100 to 500.
 3. Plot the result and analyze their relation. Fit with y = a * t ^ -b + c.
+#### Result
 ![image](https://github.com/CFP106022206/Group-07/blob/master/Destruction%20time%20-%20Radius%20Relation.png)
+#### Discussion
+We can see that this result doesn't fit with a power law curve as good as the previous one. And we are still thinking about the science and mechanism behind it.
