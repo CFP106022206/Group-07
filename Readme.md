@@ -56,9 +56,9 @@ case2 : Error: test cannot find....<br/>
   (a) If you want to see the sphere distributed particle, use algorithm file. Click at algorithm.exe and key in some parameters.<br/>
   (b) If you want to see any other case. Please build the initial.npy frist and put it in the algorithm1 fold and run algorithm1.exe
 3. What does initial.npy looks like?<br/>
-  It is N*8 matrix. Each column represents  x y z vx vy vz mass radious
+  It is n * 8 matrix. Each column represents  x y z vx vy vz mass radious
 4. Output<br/>
-  Both algorithm.exe and algorithm1.exe will output result.npy. It is m*n*3 matrix. m for each simulation frames, n for number of particles and 3 for x,y,z.
+  Both algorithm.exe and algorithm1.exe will output result.npy. It is m * n * 3 matrix. m for each simulation frames, n for number of particles and 3 for x,y,z.
 @王一晨 @陳重名
 
 ## Scientific Research <br/>
