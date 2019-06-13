@@ -43,6 +43,9 @@ https://onedrive.live.com/view.aspx?resid=71703B636B6F91B5!14452&ithint=file%2cp
 https://1drv.ms/p/s!ArWRb2tjO3BxgP5lsV84oj4M-0eUlA?e=bPfCDU
 <br/><br/>
 
+## How to run the code
+@王一晨 @陳重名
+
 ## Scientific Research <br/>
 We want to know the destruction process of the small body. To do this, we have to come up with a way to quantify the "Destruction level". The way we do this is by calculating the position of the center of mass of the small body. </br><br>
 If the small body is compact, the position of it's C.o.M. should be equal to the orbital radius. If it is totally destroyed and formed a ring, C.o.M. should be at the center of the ring. Using this method, we can quantify the destruction level and do the analysis.
