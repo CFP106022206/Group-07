@@ -40,9 +40,10 @@ https://onedrive.live.com/view.aspx?resid=71703B636B6F91B5!14452&ithint=file%2cp
 <br/><br/>
 
 ## Scientific Research <br/>
-We want to know the destruction process of the small body. To do this, we have to come up with a way to quantify the "Destruction level". The way we do this is by calculating the position of the center of mass of the small body. </br>
+We want to know the destruction process of the small body. To do this, we have to come up with a way to quantify the "Destruction level". The way we do this is by calculating the position of the center of mass of the small body. </br><br>
 If the small body is compact, the position of it's C.o.M. should be equal to the orbital radius. If it is totally destroyed and formed a ring, C.o.M. should be at the center of the ring. Using this method, we can quantify the destruction level and do the analysis.
-We define if the C.o.M position is smaller than 0.2 orbital radius, the small body is "Destroyed".</br>
+We define if the C.o.M position is smaller than 0.2 orbital radius, the small body is "Destroyed".</br></br>
+To simplfy the condition, we set the small body on a circular orbit around the main body.</br></br>
 ### Research for the relation between distance and destruction time <br/>
 1. Calculate the destruction time for the small body for distance from 1000 to 6000.
 2. Plot the result and analyze their relation. Fit with y = a * t ^ b + c.
