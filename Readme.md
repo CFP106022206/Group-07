@@ -45,11 +45,11 @@ https://1drv.ms/p/s!ArWRb2tjO3BxgP5lsV84oj4M-0eUlA?e=bPfCDU
 
 ## How to run the code
 Algorithm<br/>
-1. Check the enviroment
+1. Check the enviroment<br/>
 (a) run Final_Project_Main_Code.py<br/>
 case1 : program works well. You don't need to read this anymore! Just run it and have fun.<br/>
 case2 : Error: test cannot find....<br/>
-  This is because the enviroment doesn't support to run Cython and C. Make sure you had install Cython and Visual Studio.
+  This is because the enviroment doesn't support to run Cython and C. Make sure you had install Cython and Visual Studio.<br/>
 (b) Or you can dowload the package here:<br/>
   https://drive.google.com/open?id=1ZMO0dPUJR1jgOTxViZA_03Wyuc9u6RRm
 2. How to use the package<br/>
