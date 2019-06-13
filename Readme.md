@@ -53,8 +53,8 @@ case2 : Error: test cannot find....<br/>
 (b) Or you can dowload the package here:<br/>
   https://drive.google.com/open?id=1ZMO0dPUJR1jgOTxViZA_03Wyuc9u6RRm
 2. How to use the package<br/>
-  (a) If you want to see the sphere distributed particle, use algorithm file. Click at algorithm.py and key in some parameters.<br/>
-  (b) If you want to see any other case. Please build the initial.npy frist and put it in the algorithm1 fold.
+  (a) If you want to see the sphere distributed particle, use algorithm file. Click at algorithm.exe and key in some parameters.<br/>
+  (b) If you want to see any other case. Please build the initial.npy frist and put it in the algorithm1 fold and run algorithm1.exe
 3. What does initial.npy looks like?<br/>
   It is N*8 matrix. Each column represents  x y z vx vy vz mass radious
 4. Output<br/>
