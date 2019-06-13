@@ -6,7 +6,7 @@
 3. 林彥興 106020008：Main Code Construction / Scientific Analysis<br/>
 4. 呂長益 106022109：Art Supporter / Theoretical analyze<br/>
 5. 黃禕煒 x1072165：Art Supporter / Calculation of Collision and Gravity<br/>
-6. 陳重衡 106020087：Initial Condition generation<br/><br/>
+6. 陳重衡 106020087：Initial condition generation<br/><br/>
 
 ## Title <br/>
 Numerical Simulation of the Tidal Effect on small body inside Roche limit<br/><br/>
