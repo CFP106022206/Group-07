@@ -59,7 +59,7 @@ case2 : Error: test cannot find....<br/>
   It is n * 8 matrix. Each column represents  x y z vx vy vz mass radious
 4. Output<br/>
   Both algorithm.exe and algorithm1.exe will output result.npy. It is m * n * 3 matrix. m for each simulation frames, n for number of particles and 3 for x,y,z.
-@王一晨 @陳重名
+</br></br>
 
 ## Scientific Research <br/>
 We want to know the destruction process of the small body. To do this, we have to come up with a way to quantify the "Destruction level". The way we do this is by calculating the position of the center of mass of the small body. </br><br>
