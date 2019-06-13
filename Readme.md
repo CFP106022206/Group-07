@@ -50,7 +50,8 @@ Algorithm<br/>
 case1 : program works well. You don't need to read this anymore! Just run it and have fun.<br/>
 case2 : Error: test cannot find....<br/>
   This is because the enviroment doesn't support to run Cython and C. Make sure you had install Cython and Visual Studio.
-(b) Or you can dowload the package here: https://drive.google.com/open?id=1ZMO0dPUJR1jgOTxViZA_03Wyuc9u6RRm
+(b) Or you can dowload the package here:<br/>
+  https://drive.google.com/open?id=1ZMO0dPUJR1jgOTxViZA_03Wyuc9u6RRm
 2. How to use the package<br/>
   (a) If you want to see the sphere distributed particle, use algorithm file. Click at algorithm.py and key in some parameters.<br/>
   (b) If you want to see any other case. Please build the initial.npy frist and put it in the algorithm1 fold.
