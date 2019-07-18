@@ -93,8 +93,8 @@ The radius of the small body will influence how strong the small body could grav
 We can see that this result doesn't fit with a power law curve as good as the previous one. And we are still thinking about the science and mechanism behind it.
 
 ## Coding with numba(2019/7/18 update)
-numba_blackmagic.py is using numba to achieve parallel and vectorization calculation, which can have more efficient calculation.
-Althought numba would need more time to compile when the function is called at first, it could save a lot of time with the large particles simulation.
+numba_blackmagic.py is using numba to achieve parallel and vectorization calculation, which can calculate more efficiently.
+Althought numba would need more time to compile when the function is called at first, it still save a lot of time with the large particles simulation.
 ### How to use numba
 1. add @njit(parallel = True) before the function
 2. change "for i in range"  into  "for i in prange" if the algorithm can be parallel computing.
