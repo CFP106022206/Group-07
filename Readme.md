@@ -103,4 +103,5 @@ Pure python(no module) : 2437.1225 sec<br/>
 Wapper C with Cython      : 48.2399 sec              
 Numpy + vectorization : 12.1887 sec<br/>
 Numba(2 cores  4 threads) :  4.0357 sec <br/>
-Numba(6 cores 12 threads) :  2.2445 sec <br/>
+Numba(6 cores 12 threads) :  2.2665 sec <br/>
+Numba(6C12T order = 'C') :  2.2201 sec <br/>
