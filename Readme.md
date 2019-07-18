@@ -99,6 +99,6 @@ Althought numba would need more time to compile when the function is called at f
 1. add @njit(parallel = True) before the function
 2. change "for i in range"  to  "for i in prange" if the algorithm can be parallel computing.
 ### Comparison (1000 particles  20 frames) (without compile)
-Wapper C with Cython      : 48.2399 sec <br/>             
+Wapper C with Cython      : 48.2399 sec              
 Numba(2 cores  4 threads) :  4.0357 sec <br/>
 Numba(6 cores 12 threads) :  2.2445 sec <br/>
