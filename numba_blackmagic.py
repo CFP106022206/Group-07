@@ -7,7 +7,6 @@ Created on Tue Jul 16 22:19:03 2019
 import numpy as np
 from numba import njit, prange
 
-import time
 from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.animation as a
 import matplotlib.pyplot as plt
@@ -33,11 +32,11 @@ e = 1            #coefficient of restitution
 #R is the main array that stores the 3D position and velocity of the particles
 R = np.ones((n,8))
 R.astype('float64')
-#R = R.copy(order='C') #Make sure it works in C, dark magic
+R = R.copy(order='C') #Make sure it works in C, dark magic
 
 #This is an array that is used for the C module
 empty_array = np.empty_like(R)
-#empty_array = empty_array.copy(order='C')
+empty_array = empty_array.copy(order='C')
 
 #%%
 
@@ -85,7 +84,6 @@ def algorithm(R,empty_array):
 
         m = np.zeros((7,3))
         k = np.zeros((7,3))
-        
         
         #for j in range(n):
         #    if j!=i:
@@ -228,13 +226,9 @@ def store(t): #用於儲存不同時間的位置資訊
 
 #%%
 for t in range(1,simulation_frame): #執行主程式
-    if t == 2:
-        start = time.time()
     frame()
     store(t)
     print(t)
-
-print(time.time()-start)
 #%%
 #繪圖
 def update_graph(t):
