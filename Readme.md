@@ -99,9 +99,11 @@ Althought numba would need more time to compile when the function is called at f
 1. add @njit(parallel = True) before the function
 2. change "for i in range"  into  "for i in prange" if the algorithm can be parallel computing.
 ### Comparison (1000 particles  20 frames) (without compile)
-Pure python(no module) : 2437.1225 sec<br/>
-Wapper C with Cython      : 48.2399 sec              
-Numpy + vectorization : 12.1887 sec<br/>
-Numba(2 cores  4 threads) :  4.0357 sec <br/>
-Numba(6 cores 12 threads) :  2.2665 sec <br/>
-Numba(6C12T order = 'C') :  2.2201 sec <br/>
+| Method                    | Time Used(sec)| 
+| ------------------------- |--------------:|
+| Pure python(no module)    |     2437.1225 |
+| Wapper C with Cython      |       48.2399 |
+| Numpy + vectorization     |       12.1887 |
+| Numba(2 cores  4 threads) |        4.0357 |
+| Numba(6 cores 12 threads) |        2.2665 |
+| Numba(6C12T order = 'C')  |        2.2201 |
