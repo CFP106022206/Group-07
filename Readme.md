@@ -97,7 +97,7 @@ numba_blackmagic.py is using numba to achieve parallel and vectorization calcula
 Althought numba would need more time to compile when the function is called at first, it still save a lot of time with the large particles simulation.
 ### How to use numba
 1. add @njit(parallel = True) before the function
-2. change "for i in range"  into  "for i in prange" if the algorithm can be parallel computing.
+2. change `for i in range`  into  `for i in prange` if the algorithm can be parallel computing.
 ### Comparison (1000 particles  20 frames) (without compile)
 | Method                    | Time Used(sec)| 
 | ------------------------- |---------:|
