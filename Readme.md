@@ -91,3 +91,7 @@ The radius of the small body will influence how strong the small body could grav
 ![image](https://github.com/CFP106022206/Group-07/blob/master/Destruction%20time%20-%20Radius%20Relation.png)
 #### Discussion
 We can see that this result doesn't fit with a power law curve as good as the previous one. And we are still thinking about the science and mechanism behind it.
+
+## Coding with numba(update)
+numba_blackmagic.py is using numba to achieve parallel and vectorization calculation, which can have more efficient calculation.
+Althought numba would need more time to compile when the function is called at first, it could save a lot of time with the large particles simulation.
