@@ -100,10 +100,10 @@ Althought numba would need more time to compile when the function is called at f
 2. change "for i in range"  into  "for i in prange" if the algorithm can be parallel computing.
 ### Comparison (1000 particles  20 frames) (without compile)
 | Method                    | Time Used(sec)| 
-| ------------------------- |--------------:|
-| Pure python(no module)    |     2437.1225 |
-| Wapper C with Cython      |       48.2399 |
-| Numpy + vectorization     |       12.1887 |
-| Numba(2 cores  4 threads) |        4.0357 |
-| Numba(6 cores 12 threads) |        2.2665 |
-| Numba(6C12T order = 'C')  |        2.2201 |
+| ------------------------- |----------:|
+| Pure python(no module)    | 2437.1225 |
+| Wapper C with Cython      |   48.2399 |
+| Numpy + vectorization     |   12.1887 |
+| Numba(2 cores  4 threads) |    4.0357 |
+| Numba(6 cores 12 threads) |    2.2665 |
+| Numba(6C12T order = 'C')  |    2.2201 |
