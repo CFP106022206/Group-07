@@ -104,7 +104,7 @@ Althought numba would need more time to compile when the function is called at f
 | ------------------------- |---------:|
 | Pure python(no module)    | 2437.1225 |
 | Wapper C with Cython      |   48.2399 |
-| Numpy + vectorization     |   12.1887 |
-| Numba(2 cores  4 threads) |    4.0357 |
-| Numba(6 cores 12 threads) |    2.2665 |
-| Numba(6C12T order = 'C')  |    2.2201 |
+| Numpy + vectorization     |   16.8510 |
+| Numba(2 cores  4 threads) |    7.2422 |
+| Numba(6 cores 12 threads) |    5.3497 |
+| Numba(6C12T order = 'C')  |    5.0016 |
