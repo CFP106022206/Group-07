@@ -108,4 +108,5 @@ Althought numba would need more time to compile when the function is called at f
 | Numba(2 cores  4 threads) |    7.2422 |
 | Numba(6 cores 12 threads) |    5.3497 |
 | Numba(6C12T order = 'C')  |    5.0016 |
+
 `The algorithm only makes gravitational calculation parallel compute`
