@@ -110,3 +110,10 @@ Althought numba would need more time to compile when the function is called at f
 | Numba(6C12T order = 'C')  |    5.0016 |
 
 `The algorithm only makes gravitational calculation parallelly compute`
+## New algorithm of collition(2019/7/20 update)
+Divide the space into 8 equal parts with the center(average x,y,z), which can not only decrease the amount of calculation but also make the algorithm be parallelly compute.
+### Performance (1000 particles  20 frames) (without compile)
+| Method | Time Used(sec)| 
+| ------ |-------:|
+| Origin | 5.0016 |
+| New    | 0.7031 |
