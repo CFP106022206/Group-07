@@ -7,10 +7,10 @@ Created on Tue Jul 16 22:19:03 2019
 import numpy as np
 from numba import njit, prange
 
+
 from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.animation as a
 import matplotlib.pyplot as plt
-
 
 #%%
 
@@ -18,11 +18,11 @@ G = 6.67*10**-11   #Gravitational constant
  
 M = 5*10**5        #Center Body Mass
 
-n = 10             #Number of particles
+n = 1000            #Number of particles
 
-simulation_frame = 100
+simulation_frame = 20
 
-time_resoultion = 1
+time_resoultion = 2
 
 e = 1            #coefficient of restitution
 
@@ -42,7 +42,7 @@ empty_array = empty_array.copy(order='C')
 
 #給定 Initial Condition
 #給定位置(均勻球形分布)
-r = 435 #小天體的半徑
+r = 100 #小天體的半徑
 
 coor_trans = np.zeros((n,3))
 coor_trans[:,0] = r
@@ -57,11 +57,11 @@ position[:,1] = spherical[:,0]*np.sin(spherical[:,1])*np.sin(spherical[:,2])
 position[:,2] = spherical[:,0]*np.cos(spherical[:,1])
 
 R[:,0:3] = position
-R[:,0:3] += [1000,1000,1000]
+R[:,0:3] += [1000,0,0]
 
 #給定速度(等速前進)
-R[:,3] *= 0#-250000  
-R[:,4] *= 0
+R[:,3] *= 0#-0.3#  
+R[:,4] *= 0#(G*(10**15)/10**3)**0.5
 R[:,5] *= 0
 R[:,6] *= M #粒子質量
 R[:,7] *= 20 #粒子半徑
@@ -74,16 +74,17 @@ R[0,7] = 300
 
 R_datas = np.zeros((simulation_frame,n,3))
 R_datas[0,:,:3] = R[:,:3] #儲存所有frame的位置資訊
-#%% algorithm
+#%% 
+# gravity
 @njit(parallel=True)
-def algorithm(R,empty_array):
-    # gravity
+def gravity(R,empty_array):
     empty_array[:,6:] = R[:,6:]
-    global n,G,time_resoultion,e
+    global n,G,time_resoultion
     for i in prange(n):
 
         m = np.zeros((7,3))
         k = np.zeros((7,3))
+        
         
         #for j in range(n):
         #    if j!=i:
@@ -177,48 +178,67 @@ def algorithm(R,empty_array):
         
         empty_array[i, :3] = R[i, :3]+5179/57600*time_resoultion*k[0]+7571/16695*time_resoultion*k[2]+393/640*time_resoultion*k[3]-92097/339200*time_resoultion*k[4]+187/2100*t*k[5]+1/40*time_resoultion*k[6]
         empty_array[i,3:6] = R[i,3:6]+5179/57600*time_resoultion*m[0]+7571/16695*time_resoultion*m[2]+393/640*time_resoultion*m[3]-92097/339200*time_resoultion*m[4]+187/2100*t*m[5]+1/40*time_resoultion*m[6]
-    # collision
     
-    for i in range(n//2+1):
-        pos = np.zeros((n,3))
-        pos[:, :3]  = empty_array[:, :3]
-        rad1  = empty_array[:,7:8]
-        
-        rad = rad1+rad1[i]
-        pos -= pos[i]
-        pos *= -1
-        
-        dis  = np.sqrt(pos[:,0]**2+pos[:,1]**2+pos[:,2]**2).reshape((n,1))
-        res  = (dis-rad)[:,0]
-        target, = np.where(res<0)
-        if len(target)!=0:
-            for j in target:      
-                if j!=i and np.dot(pos[j],empty_array[i,3:6]-empty_array[j,3:6]) <0: # dot xj-xi vj-vi
-                    
-                    v1_vertical   = np.dot(empty_array[i,3:6],pos[j]/np.linalg.norm(pos[j]))*(pos[j])/np.linalg.norm(pos[j])
-                    v1_horizontal = empty_array[i,3:6]-v1_vertical
-                    v2_vertical   = np.dot(empty_array[j,3:6],pos[j]/np.linalg.norm(pos[j]))*(pos[j])/np.linalg.norm(pos[j])
-                    v2_horizontal = empty_array[j,3:6]-v2_vertical
-
-                    v1_vertical_fn = (e*empty_array[j,6]*(v2_vertical-v1_vertical)+empty_array[i,6]*v1_vertical+empty_array[j,6]*v2_vertical)/(empty_array[i,6]+empty_array[j,6])
-                    v2_vertical_fn = (e*empty_array[i,6]*(v1_vertical-v2_vertical)+empty_array[i,6]*v1_vertical+empty_array[j,6]*v2_vertical)/(empty_array[i,6]+empty_array[j,6])
-                    
-                    empty_array[i,3:6] = v1_vertical_fn+v1_horizontal
-                    empty_array[j,3:6] = v2_vertical_fn+v2_horizontal     
-
+# collision
+@njit(parallel=True)
+def collition(empty_array):
+    global n,e
+    check_list = np.zeros((n,3))
+    
+    center = np.zeros(3)
+    center[0] = np.mean(empty_array[:,0])
+    center[1] = np.mean(empty_array[:,1])
+    center[2] = np.mean(empty_array[:,2])
+    
+    for i in prange(n):
+        for j in prange(3):
+            if empty_array[i,j] >= center[j]:
+                check_list[i,j] = 1
+    
+    region = check_list[:,0]*4 + check_list[:,1]*2 + check_list[:,2]
+    
+    for k in prange(8):
+        reg = empty_array[region == k]
+        ta, = np.where(region == k)
+        if len(reg)>1:
+            for i in range(len(reg)):
+                pos = np.zeros((len(reg),3))
+                pos[:, :3]  = reg[:, :3]
+                rad1  = reg[:,7:8]
+                
+                rad = rad1+rad1[i]
+                pos -= pos[i]
+                pos *= -1
+                
+                dis  = np.sqrt(pos[:,0]**2+pos[:,1]**2+pos[:,2]**2).reshape((len(reg),1))
+                res  = (dis-rad)[:,0]
+                target, = np.where(res<0)
+                
+                if len(target)!=0:
+                    for j in target:      
+                        if j!=i and np.dot(pos[j],reg[i,3:6]-reg[j,3:6]) <0: # dot xj-xi vj-vi
+                            
+                            v1_vertical   = np.dot(reg[i,3:6],pos[j]/np.linalg.norm(pos[j]))*(pos[j])/np.linalg.norm(pos[j])
+                            v1_horizontal = reg[i,3:6]-v1_vertical
+                            v2_vertical   = np.dot(reg[j,3:6],pos[j]/np.linalg.norm(pos[j]))*(pos[j])/np.linalg.norm(pos[j])
+                            v2_horizontal = reg[j,3:6]-v2_vertical
+            
+                            v1_vertical_fn = (e*reg[j,6]*(v2_vertical-v1_vertical)+reg[i,6]*v1_vertical+reg[j,6]*v2_vertical)/(reg[i,6]+reg[j,6])
+                            v2_vertical_fn = (e*reg[i,6]*(v1_vertical-v2_vertical)+reg[i,6]*v1_vertical+reg[j,6]*v2_vertical)/(reg[i,6]+reg[j,6])
+                            
+                            reg[i,3:6] = v1_vertical_fn+v1_horizontal
+                            reg[j,3:6] = v2_vertical_fn+v2_horizontal 
+            
+            for number in range(len(ta)):
+                empty_array[ta[number],:] = reg[number,:]
 #%%
 
 def frame(): #用於計算
-    
-    #global G
-    #global time_resoultion
-    #global e
-    
     global R,empty_array     
-    algorithm(R,empty_array)#,G,time_resoultion,e)
+    gravity(R,empty_array)#,G,time_resoultion,e
+    collition(empty_array)
     R = empty_array
-
-
+    
 def store(t): #用於儲存不同時間的位置資訊
     global R_datas
     global R
@@ -229,8 +249,10 @@ for t in range(1,simulation_frame): #執行主程式
     frame()
     store(t)
     print(t)
+
 #%%
 #繪圖
+
 def update_graph(t):
     graph._offsets3d = (R_datas[t,:,0],R_datas[t,:,1],R_datas[t,:,2])
 fig   = plt.figure()
